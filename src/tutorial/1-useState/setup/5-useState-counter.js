@@ -1,7 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const UseStateCounter = () => {
-  return <h2>useState counter example</h2>;
+	const [value, setValue] = useState(0);
+	const handleIncrease = () => {
+		setValue((prevValue) => prevValue + 1);
+	};
+	const handleReset = () => {
+		setValue(0);
+	};
+	const handleDecrease = () => {
+		setValue((prevValue) => prevValue - 1);
+	};
+	return (
+		<>
+			<h2>regular counter</h2>
+			<h1>{value}</h1>
+			<button onClick={handleDecrease} className="btn">
+				decrease
+			</button>
+			<button onClick={handleReset} className="btn">
+				reset
+			</button>
+			<button onClick={handleIncrease} className="btn">
+				increase
+			</button>
+		</>
+	);
 };
 
 export default UseStateCounter;
