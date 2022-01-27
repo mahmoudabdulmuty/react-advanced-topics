@@ -5,10 +5,10 @@ import React, { useEffect, useState } from 'react';
 const UseEffectBasics = () => {
 	const [value, setValue] = useState(0);
 	useEffect(() => {
-		document.title = value;
-		console.log('useEffect');
+		if (value >= 1) {
+			document.title = value;
+		}
 	});
-	console.log('render');
 	return (
 		<>
 			<h2>{value}</h2>
