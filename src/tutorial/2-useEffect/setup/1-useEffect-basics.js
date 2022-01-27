@@ -8,7 +8,11 @@ const UseEffectBasics = () => {
 		if (value >= 1) {
 			document.title = value;
 		}
-	});
+		console.log('use effect');
+	}, [value]);
+	useEffect(() => {
+		console.log('hello world');
+	}, []);
 	return (
 		<>
 			<h2>{value}</h2>
