@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
+const url = 'https://api.github.com/users';
+
+// second argument
+
 const UseEffectFetchData = () => {
 	const [users, setUsers] = useState([]);
 
-	const getUsers = () => {
-		fetch('https://api.github.com/users')
-			.then((res) => res.json())
-			.then((data) => setUsers(data));
+	const getUsers = async () => {
+		const response = await fetch(url);
+		const users = await response.json();
+		setUsers(users);
 	};
 
 	useEffect(() => {
@@ -16,13 +20,13 @@ const UseEffectFetchData = () => {
 		<>
 			<h3>github users</h3>
 			<ul className="users">
-				{users.map(({ id, avatar_url, login, url }) => {
+				{users.map(({ id, login, avatar_url, html_url }) => {
 					return (
 						<li key={id}>
 							<img src={avatar_url} alt={login} />
 							<div>
 								<h4>{login}</h4>
-								<a href={url}>Profile</a>
+								<a href={html_url}>profile</a>
 							</div>
 						</li>
 					);
