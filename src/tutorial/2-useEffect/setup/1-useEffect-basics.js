@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react';
 // second parameter
 const UseEffectBasics = () => {
 	const [value, setValue] = useState(0);
+	
 	useEffect(() => {
 		if (value >= 1) {
 			document.title = value;
 		}
 		console.log('use effect');
 	}, [value]);
+
 	useEffect(() => {
 		console.log('hello world');
 	}, []);
