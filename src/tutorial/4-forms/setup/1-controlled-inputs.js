@@ -4,7 +4,7 @@ const ControlledInputs = () => {
 	const [formData, setFormData] = useState({
 		firstName: '',
 		email: '',
-		id: Math.random()
+		id: new Date().getTime().toString()
 	});
 	const [people, setPeople] = useState([]);
 
@@ -14,7 +14,7 @@ const ControlledInputs = () => {
 		setFormData({
 			firstName: '',
 			email: '',
-			id: Math.random()
+			id: new Date().getTime().toString()
 		});
 	};
 
