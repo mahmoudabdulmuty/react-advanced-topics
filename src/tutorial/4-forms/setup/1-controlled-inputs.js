@@ -3,18 +3,21 @@ import { useState } from 'react';
 const ControlledInputs = () => {
 	const [formData, setFormData] = useState({
 		firstName: '',
-		email: '',
-		id: new Date().getTime().toString()
+		email: ''
 	});
 	const [people, setPeople] = useState([]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (formData.firstName && formData.email) setPeople([...people, formData]);
+		if (formData.firstName && formData.email) {
+			setPeople([
+				...people,
+				{ ...formData, id: new Date().getTime().toString() }
+			]);
+		}
 		setFormData({
 			firstName: '',
-			email: '',
-			id: new Date().getTime().toString()
+			email: ''
 		});
 	};
 
